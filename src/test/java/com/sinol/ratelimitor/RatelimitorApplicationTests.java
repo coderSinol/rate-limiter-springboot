@@ -60,7 +60,7 @@ class RatelimitorApplicationTests {
 			}
 		});
 		
-		// Additional call with fail with rate limit exceeded
+		// The next call will fail with rate limit exceeded
 		MvcResult result = mockMvc.perform(get("/ratelimit").header("X-api-key", "exceed-rate-limit"))
 					.andExpect(status().is4xxClientError()).andReturn();
 		assertEquals(HttpStatus.TOO_MANY_REQUESTS.value(), result.getResponse().getStatus());
