@@ -4,6 +4,8 @@ This module restricts a particular requester from making too many requests withi
 
 A requester is identified by an API key. The caller of this module must provide a correct API key to validate the rate limit.
 
+The rate limiting functionality 
+
 ### Run and test locally
 ```bash
 mvn spring-boot:run
@@ -12,6 +14,12 @@ or Run RatelimiterApplication.java class. There is a sample endpoint in SampleCo
 
 
 The default HTTP port is set to 8090
+
+### Build
+
+```
+mvn clean install
+```
 
 ### Usage
 * Add the following dependency to the project and update the version
