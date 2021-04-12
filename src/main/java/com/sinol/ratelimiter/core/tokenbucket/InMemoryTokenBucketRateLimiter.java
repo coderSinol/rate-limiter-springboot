@@ -33,8 +33,6 @@ public class InMemoryTokenBucketRateLimiter implements RateLimiter {
 
 		TokenBucket tokenBucketRateLimiter = rateLimiterHolder.get(apiKey);
 		if (tokenBucketRateLimiter == null) {
-			// TODO Generate rate limit strategy based on api key. Rate limit can be changed
-			// according to the pricing plan ..etc
 			tokenBucketRateLimiter = new TokenBucket(maximumRequestCount, requestWindowInMillis);
 			rateLimiterHolder.put(apiKey, tokenBucketRateLimiter);
 		}
