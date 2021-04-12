@@ -1,6 +1,8 @@
 # Rate limiting Module
 
-This module restricts a particular requester from making too many requests within a particular time window. If a requester makes too many requests, it will return HTTP status 429 with an error message "Rate limit exceeded. Try again in #{n} seconds".
+This module restricts a particular requester from making too many requests within a particular time window. If a requester makes too many requests, it will return HTTP status 429 with an error message "Rate limit exceeded. Try again in #{n} seconds". 
+
+A requester is identified by an API key. The caller of this module must provide a correct API key to validate the rate limit.
 
 ### Run and test locally
 ```bash
@@ -59,6 +61,7 @@ There is no one specific way to use RateLimitValidator instance in your code. Fo
 * Currently, the rate limiter module is implemented only Token bucket algorithm with in-memory cache. This can be extended by implementing any other algorithm. Please see RateLimit.java interface for more details.
 
 * Current implementation is not suitable when an application running in a cluster. If application running in a cluster, the type REDIS_TOKEN_BUCKET should be used. (The implementation of REDIS_TOKEN_BUCKET is yet to be done) 
+
 
 
 
