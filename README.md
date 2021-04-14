@@ -4,8 +4,6 @@ This module restricts a particular requester from making too many requests withi
 
 A requester is identified by an API key. The caller of this module must provide a correct API key to validate the rate limit.
 
-The rate limiting functionality 
-
 ### Run and test locally
 ```bash
 mvn spring-boot:run
