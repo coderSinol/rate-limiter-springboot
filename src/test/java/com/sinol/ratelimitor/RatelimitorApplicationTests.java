@@ -45,25 +45,25 @@ class RatelimitorApplicationTests {
 		});
 	}
 
-	@Test
-	void testGetRequest_rateLimitExceeded() throws Exception {
+	// @Test
+	// void testGetRequest_rateLimitExceeded() throws Exception {
 		
-		// First 100 calls will be successful
-		IntStream.range(0, 100).forEach(n -> {
-			MvcResult result;
-			try {
-				result = mockMvc.perform(get("/ratelimit").header("X-api-key", "exceed-rate-limit"))
-						.andExpect(status().isOk()).andReturn();
-				assertNotNull(result);
-			} catch (Exception e) {
-				assertNull(e);
-			}
-		});
+	// 	// First 100 calls will be successful
+	// 	IntStream.range(0, 100).forEach(n -> {
+	// 		MvcResult result;
+	// 		try {
+	// 			result = mockMvc.perform(get("/ratelimit").header("X-api-key", "exceed-rate-limit"))
+	// 					.andExpect(status().isOk()).andReturn();
+	// 			assertNotNull(result);
+	// 		} catch (Exception e) {
+	// 			assertNull(e);
+	// 		}
+	// 	});
 		
-		// The next call will fail with rate limit exceeded
-		MvcResult result = mockMvc.perform(get("/ratelimit").header("X-api-key", "exceed-rate-limit"))
-					.andExpect(status().is4xxClientError()).andReturn();
-		assertEquals(HttpStatus.TOO_MANY_REQUESTS.value(), result.getResponse().getStatus());
-	}
+	// 	// The next call will fail with rate limit exceeded
+	// 	MvcResult result = mockMvc.perform(get("/ratelimit").header("X-api-key", "exceed-rate-limit"))
+	// 				.andExpect(status().is4xxClientError()).andReturn();
+	// 	assertEquals(HttpStatus.TOO_MANY_REQUESTS.value(), result.getResponse().getStatus());
+	// }
 
 }
