@@ -27,6 +27,7 @@ public class TokenBucket {
 		refill();
 		if (availableTokens < 1) {
 			long timeToNextRefill = (lastRefillTimestamp + requestWindowInMillis) - System.currentTimeMillis();
+			return false;
 			// throw new RateLimitExceededException(rateLimitExceededErrorMessage.formatted(timeToNextRefill / 1000));
 		} else {
 			availableTokens--;
