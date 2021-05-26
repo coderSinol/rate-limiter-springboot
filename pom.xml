@@ -42,4 +42,12 @@
 		</plugins>
 	</build>
 
+	<distributionManagement>
+		<repository>
+			<id>codeartifact</id>
+			<name>codeartifact</name>
+			<url>https://imersian-maven-166216504755.d.codeartifact.ap-southeast-2.amazonaws.com/maven/imersian-maven/</url>
+		</repository>
+	</distributionManagement>
+
 </project>
